@@ -1,4 +1,4 @@
-let container = null;
+let rootContainer = null;
 
 let filter = 'ALL'; // one of ALL, DONE, NOT-DONE
 let sort = "ASCENDING" // ASCENDING OR DESCENDING
@@ -20,3 +20,50 @@ const appendArray = function(array, container) {
         container.appendChild(element)
     })
 }
+
+const renderTask = function(task){
+    const container = document.createElement('div');
+    container.classList = 'todo-list__list-item';
+
+    container.innerText = task.name
+
+    return container
+}
+
+const renderTasksList = function(tasks){
+    const container = document.createElement('div');
+    container.classList = 'todo-list__list';
+
+    const tasksElements = tasks.map((task) => {
+        return renderTask(task)
+    })
+    appendArray(tasksElements, container)
+
+    return container
+}
+
+const render = function(){
+    const container = document.createElement('div');
+    container.classList = 'todo-list';
+
+    const taskListElement = renderTasksList(tasks)
+    container.appendChild(taskListElement)
+
+    return container
+}
+
+const init = function(selector){
+    const container = document.querySelector(selector)
+
+    if(!container){
+        console.log('Container do not exist')
+    } 
+
+    rootContainer = container
+
+    const app = render()
+
+    rootContainer.appendChild(app)
+}
+
+init('.root')
