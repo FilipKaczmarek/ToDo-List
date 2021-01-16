@@ -47,11 +47,42 @@ const renderTasksList = function(tasks){
     return container
 }
 
+const renderNewTaskInput = function(){
+    const input = document.createElement('input');
+    input.className = "todo-list__input";
+
+    return input
+}
+const renderNewTaskButton = function(label){
+    const button = document.createElement('button');
+    button.className = "todo-list__button"
+
+    button.innerText = label
+
+    return button
+}
+
+const renderNewTaskForm = function(){
+    const container = document.createElement('form');
+    container.className = 'todo-list__form';
+
+    const inputElement = renderNewTaskInput();
+    const buttonElement = renderNewTaskButton('ADD');
+
+    container.appendChild(inputElement);
+    container.appendChild(buttonElement);
+
+    return container
+}
+
 const render = function(){
     const container = document.createElement('div');
     container.classList = 'todo-list';
 
+    const newTaskFromElement = renderNewTaskForm()
     const taskListElement = renderTasksList(tasks)
+
+    container.appendChild(newTaskFromElement)
     container.appendChild(taskListElement)
 
     return container
