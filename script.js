@@ -25,7 +25,12 @@ const renderTask = function(task){
     const container = document.createElement('div');
     container.classList = 'todo-list__list-item';
 
-    container.innerText = task.name
+    if(task.isCompleted){
+        container.className = container.className + ' todo-list__list-item--completed';
+    }
+
+    container.innerText = task.name;
+
 
     return container
 }

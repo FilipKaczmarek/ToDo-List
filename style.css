@@ -33,3 +33,9 @@
     font-family: sans-serif;
     font-size: 14px;
 }
+
+.todo-list__list-item--completed{
+text-decoration: line-through;
+}
+
+
