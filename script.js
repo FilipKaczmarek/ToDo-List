@@ -22,7 +22,7 @@ const appendArray = function(array, container) {
 }
 
 const renderTask = function(task){
-    const container = document.createElement('div');
+    const container = document.createElement('li');
     container.classList = 'todo-list__list-item';
 
     if(task.isCompleted){
@@ -36,7 +36,7 @@ const renderTask = function(task){
 }
 
 const renderTasksList = function(tasks){
-    const container = document.createElement('div');
+    const container = document.createElement('ol');
     container.classList = 'todo-list__list';
 
     const tasksElements = tasks.map((task) => {
